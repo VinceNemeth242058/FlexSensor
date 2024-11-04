@@ -1,9 +1,3 @@
-/* How to use a flex sensor/resistro - Arduino Tutorial
-   Fade an LED with a flex sensor
-   More info: http://www.ardumotive.com/how-to-use-a-flex-sensor-en.html
-   Dev: Michalis Vasilakis // Date: 9/7/2015 // www.ardumotive.com  */
-   
-
 //Constants:
 const int flexPin = A0; //pin A0 to read analog input
 
@@ -22,8 +16,7 @@ void loop(){
   
   value = analogRead(flexPin);
               //Print value
-  mapped = map(value, 700, 900, 0, 255);//Map value 0-1023 to 0-255 (PWM)
-  String str2 = "Mapped value:";
+  mapped = map(value, 30, 1023, 0, 255);//Map value 30-1023 to 0-255 (PWM)
   Serial.print(value);
   Serial.print(" ");
   Serial.print(mapped);
