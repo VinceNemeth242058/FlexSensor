@@ -20,7 +20,7 @@ while True:
       sample[current_index] = int(data)
    except:
       sample[current_index] = 0
-   
+   vis = sample[current_index]
    
    current_index = current_index + 1 if current_index + 1 < sample_size else 0
    sma = int(sum(sample)/sample_size)
@@ -33,4 +33,4 @@ while True:
    if dx > click:
       print("\nClick!\n")
       pyautogui.click(pyautogui.position())
-   print("Value: ", calced)
+   print(f"Value: {vis} Calculated: {calced}")
