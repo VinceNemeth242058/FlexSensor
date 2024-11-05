@@ -31,6 +31,7 @@ def data_generator():
 
         # Calculate the simple moving average
         sma = int(sum(sample) / sample_size)
+        print(sma)
 
         # Yield the SMA value for real-time plotting
         yield sma

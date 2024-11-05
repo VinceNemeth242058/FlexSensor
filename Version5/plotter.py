@@ -47,7 +47,7 @@ class RealTimePlot:
 
         return self.line,
 
-    def start_animation(self, data_generator, frames=1000):
+    def start_animation(self, data_generator, frames=100000):
         """
         Start the real-time animation.
 
