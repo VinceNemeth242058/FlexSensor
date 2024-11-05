@@ -16,11 +16,7 @@ void loop(){
   
   value = analogRead(flexPin);
               //Print value
-  mapped = map(value, 30, 1023, 0, 255);//Map value 30-1023 to 0-255 (PWM)
-  Serial.print(value);
-  Serial.print(" ");
-  Serial.print(mapped);
-  Serial.println();
+  Serial.println(value);
   delay(100);                          //Small delay
   
 }
