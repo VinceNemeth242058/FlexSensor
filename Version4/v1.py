@@ -1,9 +1,10 @@
-import serial
-from DegreeConverter import custom_scaling
 import pyautogui
+import serial
+
 import csv
 import time
 import os
+from DegreeConverter import *
 start = time.time()
 ser = serial.Serial("COM4", baudrate=9600, timeout=1)
 sample_size = 1
@@ -27,7 +28,7 @@ while True:
    
    current_index = current_index + 1 if current_index + 1 < sample_size else 0
    sma = int(sum(sample)/sample_size)
-   calced = custom_scaling(sma)
+   calced = polynomial(sma)
    if prev_x == None:
       prev_x = calced
    else:
@@ -35,8 +36,10 @@ while True:
       prev_x = calced
    #if dx > click:
    #  print("\nClick!\n")
-   #   pyautogui.click(pyautogui.position())
+   #  pyautogui.click(pyautogui.position())
    with open(csv_file_path, mode='a', newline='') as file:
       writer = csv.writer(file)
       writer.writerow([vis, calced, time.time() - start])
    print(f"Value: {vis} Calculated: {calced} ")
+# 500 - 0.3 990 - 1.0
+# 650 - 0.5 850 - 0.8
